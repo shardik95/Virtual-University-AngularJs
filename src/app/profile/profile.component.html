@@ -1,3 +1,27 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+  <h2>Profile</h2>
+  <br/>
+  <label for="username">Username</label>
+  <input type="text" placeholder="username" class="form-control" id="username" readonly [(ngModel)]="user.username">
+  <br/>
+  <label for="password">Password</label>
+  <input type="password" placeholder="password" class="form-control" id="password" [(ngModel)]="user.password">
+  <br/>
+  <label for="firstName">First Name</label>
+  <input type="text" placeholder="First Name" class="form-control" id="firstName" [(ngModel)]="user.firstName">
+  <br/>
+  <label for="lastName">Last Name</label>
+  <input type="text" placeholder="Last Name" class="form-control" id="lastName" [(ngModel)]="user.lastName">
+  <br/>
+  <label for="phone">Phone no</label>
+  <input type="text" placeholder="Phone no" class="form-control" id="phone" [(ngModel)]="user.phone">
+  <br/>
+  <label for="email">Email</label>
+  <input type="email" placeholder="Email" class="form-control" id="email" [(ngModel)]="user.email">
+  <br/>
+  <label for="address">Address</label>
+  <input type="text" placeholder="address" class="form-control" id="address" [(ngModel)]="user.address">
+  <br/>
+  <button class="btn-primary btn" (click)="updateProfile()">Update profile</button>
+  <button class="btn btn-primary float-right" (click)="logout()">Logout</button>
+</div>
