@@ -1,14 +1,9 @@
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
+  <li class="nav-item" *ngFor="let lesson of lessons">
+    <a class="nav-link" href="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}" [ngClass]="{'active':lessonId==lesson.id}">
+      {{lesson.title}}
+    </a>
   </li>
 </ul>
+
+<app-topic-pills></app-topic-pills>

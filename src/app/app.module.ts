@@ -9,10 +9,11 @@ import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
-import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
 import { ModuleListComponent } from './module-list/module-list.component';
 import {ModuleServiceClient} from './services/module.service.client';
 import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
+import {LessonServiceClient} from './services/lesson.service.client';
+import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,14 @@ import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
     CourseViewerComponent,
     ModuleListComponent,
     LessonTabsComponent,
+    TopicPillsComponent,
   ],
   imports: [
     BrowserModule,
     routing
   ],
   providers: [CourseServiceClient,
-              ModuleServiceClient],
+              ModuleServiceClient,LessonServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
