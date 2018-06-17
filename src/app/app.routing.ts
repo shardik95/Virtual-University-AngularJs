@@ -10,6 +10,7 @@ const appRoute:Routes = [
   {path:'course/:courseId',component:CourseViewerComponent},
   {path:'course/:courseId/module/:moduleId',component:CourseViewerComponent},
   {path:'course/:courseId/module/:moduleId/lesson/:lessonId',component:CourseViewerComponent},
+  {path:'course/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId/widget',component:CourseViewerComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'**',component:WhiteBoardComponent}
