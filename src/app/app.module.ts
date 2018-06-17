@@ -17,6 +17,9 @@ import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 import {TopicServiceClient} from './services/topic.service.client';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import {WidgetServiceClient} from './services/widget.service.client';
+import {FormsModule} from '@angular/forms';
+import {UserServiceClient} from './services/user.service.client';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +33,15 @@ import {WidgetServiceClient} from './services/widget.service.client';
     LessonTabsComponent,
     TopicPillsComponent,
     WidgetListComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    FormsModule
   ],
   providers: [CourseServiceClient,
-              ModuleServiceClient,LessonServiceClient,TopicServiceClient,WidgetServiceClient],
+              ModuleServiceClient,LessonServiceClient,TopicServiceClient,WidgetServiceClient,UserServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

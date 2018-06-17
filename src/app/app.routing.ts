@@ -3,6 +3,7 @@ import {WhiteBoardComponent} from './white-board/white-board.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {CourseViewerComponent} from './course-viewer/course-viewer.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const appRoute:Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -13,6 +14,7 @@ const appRoute:Routes = [
   {path:'course/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId/widget',component:CourseViewerComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  {path:'profile',component:ProfileComponent},
   {path:'**',component:WhiteBoardComponent}
 ]
 

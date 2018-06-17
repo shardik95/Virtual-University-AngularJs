@@ -1,3 +1,23 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <h3>Register</h3>
+  <div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="usernameValid">
+      Username already taken!
+    </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="passwordValid">
+      Passwords do not match!
+    </div>
+
+    <input placeholder="Username" type="text" class="form-control" [(ngModel)]="username">
+    <br/>
+    <input placeholder="Password" type="password" class="form-control" [(ngModel)]="password">
+    <br/>
+    <input placeholder="Confirm password" type="password" class="form-control" [(ngModel)]="confirmPassword">
+    <br/>
+    <button class="btn btn-primary" (click)="register(username,password,confirmPassword)">Register</button>
+    <a routerLink="/home">Home</a>&nbsp;
+    <a routerLink="/login">Login</a>
+  </div>
+</div>
