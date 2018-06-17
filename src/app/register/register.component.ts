@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
       this.service.findUserByUserName(username)
         .then(response=>response.json())
         .then(user=>{
-          console.log(user)
           if(user.username==='NOT FOUND'){
             this.service.createUser(username,password)
                 .then(()=>this.router.navigate(['profile']))

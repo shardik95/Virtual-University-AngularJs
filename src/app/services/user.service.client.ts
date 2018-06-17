@@ -11,7 +11,7 @@ export class UserServiceClient{
       password:password
     }
 
-    return fetch(this.USER_URL,{
+    return fetch("http://localhost:4000/api/register",{
       credentials:'include',
       method:'post',
       body:JSON.stringify(user),

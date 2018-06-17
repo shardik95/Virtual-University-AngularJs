@@ -1,4 +1,10 @@
 <div class="container-fluid">
-  <h1>Course {{course.title}}</h1>&nbsp; <a routerLink="/home">Home</a>
+  <h1>Course {{course.title}}</h1>&nbsp;
+  <a routerLink="/home">Home</a>&nbsp;
+  <a routerLink="/login" *ngIf="login">Login</a>&nbsp;
+  <a routerLink="/register" *ngIf="login">Register</a>
+  <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
+  <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
+
   <app-module-list></app-module-list>
 </div>
