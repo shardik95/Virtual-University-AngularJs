@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TopicServiceClient} from '../services/topic.service.client';
+import {Topic} from '../models/topic.model.client';
 
 @Component({
   selector: 'app-topic-pills',
@@ -20,7 +21,7 @@ export class TopicPillsComponent implements OnInit {
   moduleId;
   lessonId;
   topicId;
-  topics=[]
+  topics:Topic[]=[];
 
   setParams(params){
       this.courseId=params['courseId'];
@@ -34,7 +35,6 @@ export class TopicPillsComponent implements OnInit {
   loadTopics(courseId,moduleId,lessonId){
       this.service.findAllTopics(courseId,moduleId,lessonId)
         .then((topics)=>this.topics=topics)
-        .then(()=>console.log(this.topics))
   }
 
 }

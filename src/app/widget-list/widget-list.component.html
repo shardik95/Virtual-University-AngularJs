@@ -1,3 +1,43 @@
-<p>
-  widget-list works!
-</p>
+<div *ngFor="let widget of widgets">
+  <div [ngSwitch]="widget.widgetType">
+
+    <div *ngSwitchCase="'Heading'">
+      <div [ngSwitch]="widget.size">
+        <h1 *ngSwitchCase="'1'">{{widget.text}}</h1>
+        <h2 *ngSwitchCase="'2'">{{widget.text}}</h2>
+        <h3 *ngSwitchCase="'3'">{{widget.text}}</h3>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'Image'">
+      <img src="{{widget.imageUrl}}"  width="300px" height="300px"/>
+    </div>
+
+    <div *ngSwitchCase="'Paragraph'">
+      <p>{{widget.paragraphText}}</p>
+    </div>
+
+    <div *ngSwitchCase="'Link'">
+      <a href="{{widget.linkUrl}}">{{widget.linkText}}</a>
+    </div>
+
+    <div *ngSwitchCase="'List'">
+      <div [ngSwitch]="widget.listType">
+
+        <div *ngSwitchCase="'Unordered List'">
+          <ul>
+            <li *ngFor="let item of widget.listText.split('\n')">{{item}}</li>
+          </ul>
+        </div>
+
+        <div *ngSwitchCase="'Ordered List'">
+          <ol>
+            <li *ngFor="let item of widget.listText.split('\n')">{{item}}</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
