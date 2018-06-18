@@ -7,6 +7,7 @@
   <a routerLink="/home">Home</a>
   <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
   <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
+  <a routerLink="/profile" *ngIf="!login">Profile</a>
 
   <br/><br/>
   <table class="table">
@@ -30,7 +31,7 @@
           {{section.maxSeats}}
         </td>
         <td>
-          <button class="btn btn-primary" *ngIf="loggedIn">Enroll</button>
+          <button class="btn btn-primary" *ngIf="loggedIn && section.availableSeats>0" (click)="enroll(section._id)">Enroll</button>
           <a routerLink="/login" *ngIf="!loggedIn">Login to enroll</a>
         </td>
       </tr>

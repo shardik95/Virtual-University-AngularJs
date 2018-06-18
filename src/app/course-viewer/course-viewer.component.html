@@ -5,6 +5,7 @@
   <a routerLink="/register" *ngIf="login">Register</a>
   <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
   <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
+  <a routerLink="/profile" *ngIf="!login">Profile</a>
 
   <app-module-list></app-module-list>
 </div>

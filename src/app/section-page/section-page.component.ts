@@ -47,4 +47,10 @@ export class SectionPageComponent implements OnInit {
       .then(()=>this.router.navigate(['login']))
   }
 
+  enroll(sectionId){
+    this.sectionService.enrollStudent(sectionId)
+      .then(()=>this.sectionService.findSectionForCourse(this.courseId))
+      .then(()=>this.router.navigate(['profile']))
+  }
+
 }

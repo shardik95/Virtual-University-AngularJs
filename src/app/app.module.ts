@@ -22,6 +22,7 @@ import {UserServiceClient} from './services/user.service.client';
 import { ProfileComponent } from './profile/profile.component';
 import { SectionPageComponent } from './section-page/section-page.component';
 import {SectionServiceClient} from './services/section.service.client';
+import {EnrollmentServiceClient} from './services/enrollment.service.client';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {SectionServiceClient} from './services/section.service.client';
     FormsModule
   ],
   providers: [CourseServiceClient,
-              ModuleServiceClient,LessonServiceClient,TopicServiceClient,WidgetServiceClient,UserServiceClient,SectionServiceClient],
+              ModuleServiceClient,LessonServiceClient,TopicServiceClient,WidgetServiceClient,UserServiceClient,SectionServiceClient
+  ,EnrollmentServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

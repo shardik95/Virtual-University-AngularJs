@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {User} from '../models/user.model.client';
 import {Router} from '@angular/router';
+import {EnrollmentServiceClient} from '../services/enrollment.service.client';
+import {SectionServiceClient} from '../services/section.service.client';
+import {e} from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-profile',
@@ -10,13 +13,17 @@ import {Router} from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private service:UserServiceClient,private router:Router) { }
+  constructor(private service:UserServiceClient,private router:Router,private enrollmentService:EnrollmentServiceClient
+    ,private sectionService:SectionServiceClient) { }
 
   user: User = new User();
+  enrollments=[]
 
   ngOnInit() {
     this.service.findCurrentUser()
       .then(user=>this.user=user)
+      .then(()=>this.enrollmentService.findEnrollments())
+      .then(enrollments=>this.enrollments=enrollments);
   }
 
   updateProfile(){
@@ -28,6 +35,12 @@ export class ProfileComponent implements OnInit {
   logout(){
     this.service.logout()
       .then(()=>this.router.navigate(['login']))
+  }
+
+  unenroll(enrollment){
+    this.sectionService.unenrollStudent(enrollment.section._id)
+      .then(()=>this.enrollmentService.findEnrollments())
+      .then(enrollments=>this.enrollments=enrollments);
   }
 
 }

@@ -26,4 +26,12 @@
   <a routerLink="/home">Home</a>
   <button class="btn btn-primary float-right" (click)="logout()">Logout</button>
 
+  <br/><br/>
+  <h3>Sections where you are enrolled</h3>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let enrollment of enrollments">
+      {{enrollment.section.name}} <button class="btn btn-primary float-right" (click)="unenroll(enrollment)">Unenroll</button>
+    </li>
+  </ul>
+
 </div>

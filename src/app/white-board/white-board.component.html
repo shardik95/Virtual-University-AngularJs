@@ -4,7 +4,17 @@
   <a routerLink="/login" *ngIf="login">Login</a>&nbsp;
   <a routerLink="/register" *ngIf="login">Register</a>
   <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
+  <div *ngIf="!login">
+    <h5>Courses where you are enrolled:</h5>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let course of coursesEnrolled">
+          {{course.title}}
+      </li>
+    </ul>
+  </div>
+  <br/>
   <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
+  <a routerLink="/profile" *ngIf="!login">Profile</a>
 
   <app-course-grid></app-course-grid>
 </div>
