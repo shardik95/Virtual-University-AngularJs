@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Sections Page</h1>
+  <h3>{{course.title}}</h3>
+
+  <a routerLink="/login" *ngIf="login">Login</a>&nbsp;
+  <a routerLink="/register" *ngIf="login">Register</a>&nbsp;
+  <a routerLink="/home">Home</a>
+  <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
+  <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
+
+  <br/><br/>
+  <table class="table">
+    <thead class="table-active">
+      <tr>
+        <td>Section Name</td>
+        <td>Available Seats</td>
+        <td>Total Seats</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let section of sections">
+        <td>
+          {{section.name}}
+        </td>
+        <td>
+          {{section.availableSeats}}
+        </td>
+        <td>
+          {{section.maxSeats}}
+        </td>
+        <td>
+          <button class="btn btn-primary" *ngIf="loggedIn">Enroll</button>
+          <a routerLink="/login" *ngIf="!loggedIn">Login to enroll</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

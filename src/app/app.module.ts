@@ -20,6 +20,8 @@ import {WidgetServiceClient} from './services/widget.service.client';
 import {FormsModule} from '@angular/forms';
 import {UserServiceClient} from './services/user.service.client';
 import { ProfileComponent } from './profile/profile.component';
+import { SectionPageComponent } from './section-page/section-page.component';
+import {SectionServiceClient} from './services/section.service.client';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { ProfileComponent } from './profile/profile.component';
     TopicPillsComponent,
     WidgetListComponent,
     ProfileComponent,
+    SectionPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule
   ],
   providers: [CourseServiceClient,
-              ModuleServiceClient,LessonServiceClient,TopicServiceClient,WidgetServiceClient,UserServiceClient],
+              ModuleServiceClient,LessonServiceClient,TopicServiceClient,WidgetServiceClient,UserServiceClient,SectionServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
