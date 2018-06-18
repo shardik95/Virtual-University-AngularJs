@@ -23,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SectionPageComponent } from './section-page/section-page.component';
 import {SectionServiceClient} from './services/section.service.client';
 import {EnrollmentServiceClient} from './services/enrollment.service.client';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {EnrollmentServiceClient} from './services/enrollment.service.client';
     WidgetListComponent,
     ProfileComponent,
     SectionPageComponent,
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,

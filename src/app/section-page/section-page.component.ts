@@ -5,6 +5,7 @@ import {User} from '../models/user.model.client';
 import {CourseServiceClient} from '../services/course.service.client';
 import {Course} from '../models/course.model.client';
 import {SectionServiceClient} from '../services/section.service.client';
+import {Section} from '../models/section.model.client';
 
 @Component({
   selector: 'app-section-page',
@@ -17,7 +18,7 @@ export class SectionPageComponent implements OnInit {
   login=true;
   courseId;
   course:Course=new Course();
-  sections=[]
+  sections:Section[]=[];
   loggedIn=false;
 
   constructor(private service:UserServiceClient,private router:Router,private route:ActivatedRoute,

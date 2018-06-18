@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>WhiteBoard</h1>
+  <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
+
+  <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
+  <a routerLink="/profile" *ngIf="!login">Profile</a>&nbsp;
+  <a routerLink="/home" >Home</a>
+  <div *ngIf="editDelete">
+    <h4>Add/Edit the section</h4>
+    <label for="sectionName">Section Name</label>
+    <input type="text" placeholder="Section Name" class="form-control" id="sectionName" [(ngModel)]="sectionName">
+    <label for="availseats">Available Seats</label>
+    <input type="text" placeholder="Available Seats" class="form-control" id="availseats" [(ngModel)]="AvailableSeats">
+    <label for="maxseats">Max Seats</label>
+    <input type="text" placeholder="Max Seats" class="form-control" id="maxseats" [(ngModel)]="MaxSeats">
+    <button class="btn btn-primary float-right" *ngIf="editClicked" (click)="update()">Update</button>
+    <button class="btn btn-primary float-right" *ngIf="addClicked" (click)="addSection()">Add</button>
+  </div>
+
+  <br/>
+  <br/>
+
+  <table class="table">
+    <thead>
+      <tr *ngFor="let course of courses">
+        <table class="table">
+            <thead>
+            <tr class="table">
+              <td>{{course.title}} <button class="btn btn-primary float-right" (click)="add(course.id)">Add</button></td>
+            </tr>
+            <tr class="table-active">
+              <td>Section Name</td>
+              <td>Available Seats</td>
+              <td>Max Seats</td>
+              <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let section of sections">
+                 <td *ngIf="section.courseId==course.id">{{section.name}}</td>
+                <td *ngIf="section.courseId==course.id">{{section.availableSeats}}</td>
+                <td *ngIf="section.courseId==course.id">{{section.maxSeats}}</td>
+                <td *ngIf="section.courseId==course.id">
+                  <button class="btn btn-primary" (click)="edit(section,course)">Edit</button>
+                  <button class="btn btn-primary float-right" (click)="delete(section,course)">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+      </tr>
+    </thead>
+  </table>
+</div>

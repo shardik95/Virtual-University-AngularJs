@@ -4,7 +4,6 @@ import {User} from '../models/user.model.client';
 import {Router} from '@angular/router';
 import {EnrollmentServiceClient} from '../services/enrollment.service.client';
 import {SectionServiceClient} from '../services/section.service.client';
-import {e} from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +22,7 @@ export class ProfileComponent implements OnInit {
     this.service.findCurrentUser()
       .then(user=>this.user=user)
       .then(()=>this.enrollmentService.findEnrollments())
-      .then(enrollments=>this.enrollments=enrollments);
+      .then(enrollments=>this.enrollments=enrollments)
   }
 
   updateProfile(){

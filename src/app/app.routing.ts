@@ -5,6 +5,7 @@ import {RegisterComponent} from './register/register.component';
 import {CourseViewerComponent} from './course-viewer/course-viewer.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SectionPageComponent} from './section-page/section-page.component';
+import {AdminPageComponent} from './admin-page/admin-page.component';
 
 const appRoute:Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -17,6 +18,7 @@ const appRoute:Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'profile',component:ProfileComponent},
+  {path:'admin',component:AdminPageComponent},
   {path:'**',component:WhiteBoardComponent}
 ]
 

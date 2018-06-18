@@ -24,8 +24,10 @@ export class LessonTabsComponent implements OnInit {
 
   setParams(params){
     this.courseId=params['courseId'];
-    this.moduleId=params['moduleId'];
-    this.lessonId=params['lessonId'];
+    if(params['moduleId']!==undefined)
+        this.moduleId=params['moduleId'];
+    if(params['lessonId']!==undefined){}
+        this.lessonId=params['lessonId'];
     this.loadLessons(this.courseId,this.moduleId)
   }
 

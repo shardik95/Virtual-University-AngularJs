@@ -1,20 +1,33 @@
-<div class="container">
-  <h1>WhiteBoard</h1>
 
-  <a routerLink="/login" *ngIf="login">Login</a>&nbsp;
-  <a routerLink="/register" *ngIf="login">Register</a>
-  <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
-  <div *ngIf="!login">
-    <h5>Courses where you are enrolled:</h5>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let course of coursesEnrolled">
-          {{course.title}}
-      </li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/home">WhiteBoard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a routerLink="/login" class="nav-item nav-link active" *ngIf="login">Login</a>&nbsp;
+      <a routerLink="/register" class="nav-item nav-link active" *ngIf="login">Register</a>
+      <button (click)="logout()" *ngIf="!login" class="btn btn-dark float-right nav-item nav-link active" >Logout</button>
+      <a routerLink="/profile" *ngIf="!login" class="nav-item nav-link active">Profile</a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <br/>
+  <div>
+    <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
+    <div *ngIf="!login">
+      <h5>Courses where you are enrolled:</h5>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let course of coursesEnrolled">
+            {{course.title}}
+        </li>
+      </ul>
+    </div>
   </div>
   <br/>
-  <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
-  <a routerLink="/profile" *ngIf="!login">Profile</a>
-
   <app-course-grid></app-course-grid>
 </div>

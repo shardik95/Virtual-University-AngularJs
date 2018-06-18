@@ -23,7 +23,9 @@ export class ModuleListComponent implements OnInit {
 
   setParams(params){
     this.courseId=params['courseId'];
-    this.moduleId=params['moduleId'];
+    if(params['moduleId']!==undefined){
+      this.moduleId=params['moduleId'];
+    }
     this.loadModules(this.courseId);
   }
 

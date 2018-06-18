@@ -25,10 +25,13 @@ export class TopicPillsComponent implements OnInit {
 
   setParams(params){
       this.courseId=params['courseId'];
+    if(params['moduleId']!==undefined)
       this.moduleId=params['moduleId'];
+    if(params['lessonId']!==undefined)
       this.lessonId=params['lessonId'];
+    if(params['topicId']!==undefined)
       this.topicId=params['topicId'];
-      this.loadTopics(this.courseId,this.moduleId,this.lessonId);
+    this.loadTopics(this.courseId,this.moduleId,this.lessonId);
 
   }
 

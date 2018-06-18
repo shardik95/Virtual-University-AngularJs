@@ -21,7 +21,8 @@ export class WidgetListComponent implements OnInit {
   widgets:Widget[]=[];
 
   setParams(params){
-    this.topicId=params['topicId'];
+    if(params['topicId']!==undefined)
+      this.topicId=params['topicId'];
     this.loadWidgets(this.topicId)
   }
 

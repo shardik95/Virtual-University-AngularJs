@@ -23,7 +23,8 @@
   <input type="text" placeholder="address" class="form-control" id="address" [(ngModel)]="user.address">
   <br/>
   <button class="btn-primary btn" (click)="updateProfile()">Update profile</button>
-  <a routerLink="/home">Home</a>
+  <a routerLink="/home">Home</a>&nbsp;
+  <a routerLink="/admin" *ngIf="user.username==='admin'">Admin Page</a>
   <button class="btn btn-primary float-right" (click)="logout()">Logout</button>
 
   <br/><br/>
