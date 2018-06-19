@@ -1,11 +1,23 @@
-<div class="container-fluid">
-  <h1>Course {{course.title}}</h1>&nbsp;
-  <a routerLink="/home">Home</a>&nbsp;
-  <a routerLink="/login" *ngIf="login">Login</a>&nbsp;
-  <a routerLink="/register" *ngIf="login">Register</a>
-  <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
-  <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
-  <a routerLink="/profile" *ngIf="!login">Profile</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/course/{{course.id}}">{{course.title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a routerLink="/home" class="nav-item nav-link active" >Home</a>&nbsp;
+      <a routerLink="/login" class="nav-item nav-link active" *ngIf="login">Login</a>&nbsp;
+      <a routerLink="/register" class="nav-item nav-link active" *ngIf="login">Register</a>
+      <button (click)="logout()" *ngIf="!login" class="btn btn-dark float-right nav-item nav-link active" >Logout</button>
+      <a routerLink="/profile" *ngIf="!login" class="nav-item nav-link active">Profile</a>
+    </div>
+  </div>
+</nav>
 
-  <app-module-list></app-module-list>
+<div class="container-fluid">
+    <br/>
+    <div>
+      <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
+      <app-module-list></app-module-list>
+    </div>
 </div>

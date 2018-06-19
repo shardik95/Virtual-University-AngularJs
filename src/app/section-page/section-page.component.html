@@ -1,15 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/course/{{course.id}}">{{course.title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a routerLink="/home" class="nav-item nav-link active" >Home</a>&nbsp;
+      <a routerLink="/login" class="nav-item nav-link active" *ngIf="login">Login</a>&nbsp;
+      <a routerLink="/register" class="nav-item nav-link active" *ngIf="login">Register</a>
+      <button (click)="logout()" *ngIf="!login" class="btn btn-dark float-right nav-item nav-link active" >Logout</button>
+      <a routerLink="/profile" *ngIf="!login" class="nav-item nav-link active">Profile</a>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
-  <h1>Sections Page</h1>
-  <h3>{{course.title}}</h3>
-
-  <a routerLink="/login" *ngIf="login">Login</a>&nbsp;
-  <a routerLink="/register" *ngIf="login">Register</a>&nbsp;
-  <a routerLink="/home">Home</a>
+  <br/>
   <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
-  <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
-  <a routerLink="/profile" *ngIf="!login">Profile</a>
-
-  <br/><br/>
   <table class="table">
     <thead class="table-active">
       <tr>
@@ -22,7 +29,7 @@
     <tbody>
       <tr *ngFor="let section of sections">
         <td>
-          {{section.name}}
+          {{course.title}} {{section.name}}
         </td>
         <td>
           {{section.availableSeats}}
@@ -31,8 +38,8 @@
           {{section.maxSeats}}
         </td>
         <td>
-          <button class="btn btn-primary" *ngIf="loggedIn && section.availableSeats>0" (click)="enroll(section._id)">Enroll</button>
-          <a routerLink="/login" *ngIf="!loggedIn">Login to enroll</a>
+          <button class="btn btn-outline-dark" *ngIf="loggedIn && section.availableSeats>0" (click)="enroll(section._id)">Enroll</button>
+          <a routerLink="/login" *ngIf="!loggedIn" style="text-decoration: black;color:black">Login to enroll</a>
         </td>
       </tr>
     </tbody>

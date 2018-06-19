@@ -1,7 +1,7 @@
 <ul class="nav nav-pills">
   <li class="nav-item" *ngFor="let topic of topics">
-    <a class="nav-link" href="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{topic.id}}/widget"
-       [ngClass]="{'active':topic.id==topicId}">{{topic.title}}</a>
+    <a class="nav-link webdev" href="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{topic.id}}/widget"
+       [ngClass]="{'active':topic.id==topicId}" style="color:black">{{topic.title}}</a>
   </li>
 </ul>
 

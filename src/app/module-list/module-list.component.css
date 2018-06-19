@@ -1,8 +1,13 @@
 .active.webdev{
-  background: lightblue;
-  border: lightblue;
+  background: lightgray;
+  border: lightgray;
 }
 
 .active.webdev a{
   color:white;
+}
+
+li a {
+  text-decoration: none;
+  color:black;
 }

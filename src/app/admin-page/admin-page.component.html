@@ -1,10 +1,18 @@
-<div class="container">
-  <h1>WhiteBoard</h1>
-  <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/home">WhiteBoard</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a routerLink="/home" class="nav-item nav-link active" >Home</a>&nbsp;
+      <a routerLink="/login" class="nav-item nav-link active" *ngIf="login">Login</a>&nbsp;
+      <a routerLink="/register" class="nav-item nav-link active" *ngIf="login">Register</a>
+      <button (click)="logout()" *ngIf="!login" class="btn btn-dark float-right nav-item nav-link active" >Logout</button>
+      <a routerLink="/profile" *ngIf="!login" class="nav-item nav-link active">Profile</a>
+    </div>
+  </div>
+</nav>
 
-  <button (click)="logout()" *ngIf="!login" class="btn btn-primary float-right">Logout</button>
-  <a routerLink="/profile" *ngIf="!login">Profile</a>&nbsp;
-  <a routerLink="/home" >Home</a>
+<div class="container">
+  <h4 *ngIf="!login">Hi, {{user.firstName}}</h4>
   <div *ngIf="editDelete">
     <h4>Add/Edit the section</h4>
     <label for="sectionName">Section Name</label>
@@ -13,11 +21,9 @@
     <input type="text" placeholder="Available Seats" class="form-control" id="availseats" [(ngModel)]="AvailableSeats">
     <label for="maxseats">Max Seats</label>
     <input type="text" placeholder="Max Seats" class="form-control" id="maxseats" [(ngModel)]="MaxSeats">
-    <button class="btn btn-primary float-right" *ngIf="editClicked" (click)="update()">Update</button>
-    <button class="btn btn-primary float-right" *ngIf="addClicked" (click)="addSection()">Add</button>
+    <button class="btn btn-outline-dark float-right" *ngIf="editClicked" (click)="update()">Update</button>
+    <button class="btn btn-outline-dark float-right" *ngIf="addClicked" (click)="addSection()">Add</button>
   </div>
-
-  <br/>
   <br/>
 
   <table class="table">
@@ -26,7 +32,7 @@
         <table class="table">
             <thead>
             <tr class="table">
-              <td>{{course.title}} <button class="btn btn-primary float-right" (click)="add(course.id)">Add</button></td>
+              <td><b>{{course.title}}</b> <button class="btn btn-outline-dark float-right" (click)="add(course.id)">Add</button></td>
             </tr>
             <tr class="table-active">
               <td>Section Name</td>
@@ -37,12 +43,12 @@
             </thead>
             <tbody>
             <tr *ngFor="let section of sections">
-                 <td *ngIf="section.courseId==course.id">{{section.name}}</td>
+                 <td *ngIf="section.courseId==course.id">{{course.title}} {{section.name}}</td>
                 <td *ngIf="section.courseId==course.id">{{section.availableSeats}}</td>
                 <td *ngIf="section.courseId==course.id">{{section.maxSeats}}</td>
                 <td *ngIf="section.courseId==course.id">
-                  <button class="btn btn-primary" (click)="edit(section,course)">Edit</button>
-                  <button class="btn btn-primary float-right" (click)="delete(section,course)">Delete</button>
+                  <button class="btn btn-outline-dark" (click)="edit(section,course)">Edit</button>
+                  <button class="btn btn-outline-dark float-right" (click)="delete(section,course)">Delete</button>
                 </td>
             </tr>
             </tbody>

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-4">
     <ul class="list-group">
-      <li class="list-group-item active">Modules</li>
+      <li class="list-group-item bg-dark" style="color:white">Modules</li>
       <li class="list-group-item webdev" *ngFor="let module of modules" [ngClass]="{'active':moduleId==module.id}">
         <a href="/course/{{courseId}}/module/{{module.id}}">{{module.title}}</a>
       </li>

@@ -1,6 +1,7 @@
 <ul class="nav nav-tabs">
   <li class="nav-item" *ngFor="let lesson of lessons">
-    <a class="nav-link" href="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}" [ngClass]="{'active':lessonId==lesson.id}">
+    <a class="nav-link webdev" href="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}" style="color:black"
+       [ngClass]="{'active':lessonId==lesson.id}">
       {{lesson.title}}
     </a>
   </li>
