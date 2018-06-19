@@ -1,6 +1,7 @@
 {
   "name": "angular-course-manager",
   "version": "0.0.0",
+  "main": "server.js",
   "scripts": {
     "ng": "ng",
     "start": "server.js",
