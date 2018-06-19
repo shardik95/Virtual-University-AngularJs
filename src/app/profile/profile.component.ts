@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
   user: User = new User();
   enrollments=[]
   courses:Course[]=[];
-  login=true;
 
   ngOnInit() {
     this.service.findCurrentUser()

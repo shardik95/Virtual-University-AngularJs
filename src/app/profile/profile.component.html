@@ -3,8 +3,7 @@
     <div class="navbar-nav">
       <a routerLink="/profile" class="nav-item nav-link active" >Profile</a>
       <a routerLink="/home" class="nav-item nav-link active" >Home</a>&nbsp;
-      <a routerLink="/register" class="nav-item nav-link active" *ngIf="login">Register</a>
-      <button (click)="logout()" *ngIf="!login" class="btn btn-dark float-right nav-item nav-link active" >Logout</button>
+      <button (click)="logout()" class="btn btn-dark float-right nav-item nav-link active" >Logout</button>
     </div>
   </div>
 </nav>
