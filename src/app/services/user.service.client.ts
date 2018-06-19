@@ -1,8 +1,14 @@
 export class UserServiceClient{
 
-  USER_URL = "http://localhost:4000/api/user";
-  LOGIN_URL = "http://localhost:4000/api/login";
-  PROFILE_URL = "http://localhost:4000/api/profile"
+  // USER_URL = "http://localhost:4000/api/user";
+  // LOGIN_URL = "http://localhost:4000/api/login";
+  // PROFILE_URL = "http://localhost:4000/api/profile"
+
+  USER_URL = "https://hardik-shah-nodejs.herokuapp.com/api/user";
+  LOGIN_URL = "https://hardik-shah-nodejs.herokuapp.com/api/login";
+  PROFILE_URL = "https://hardik-shah-nodejs.herokuapp.com/api/profile"
+
+
 
   createUser(username,password){
 
@@ -11,7 +17,7 @@ export class UserServiceClient{
       password:password
     }
 
-    return fetch("http://localhost:4000/api/register",{
+    return fetch("https://hardik-shah-nodejs.herokuapp.com/api/register",{
       credentials:'include',
       method:'post',
       body:JSON.stringify(user),
@@ -50,7 +56,7 @@ export class UserServiceClient{
   }
 
   logout(){
-    return fetch("http://localhost:4000/api/logout",{
+    return fetch("https://hardik-shah-nodejs.herokuapp.com/api/logout",{
       method:'post',
       credentials: 'include'
     })
