@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static('./dist/your_app_name'));
+app.use(express.static('./dist/angular-course-manager'));
 
 app.get('/*', function(req,res) {
 
