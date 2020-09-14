@@ -1,5 +1,11 @@
 https://hardik-shah-angular.herokuapp.com/home
 
+Server Repo:
+https://github.com/shardik95/Virtual-University-NodeJs
+
+Mobile App Repo:
+https://github.com/shardik95/Virtual-University-React-Native
+
 
 # AngularCourseManager
 
